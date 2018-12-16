@@ -11,6 +11,7 @@
 
 package org.usfirst.frc5607.WeekendBuild;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -107,30 +108,6 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-    	double drivespeedleft = oi.getController().getY(GenericHID.Hand.kLeft);
-		double drivespeedright = oi.getController().getY(GenericHID.Hand.kRight);
-		
-		// Set speed for left drive motor
-		if(Math.abs(drivespeedleft) > 0.20) 
-		{
-			RobotMap.drivetrainLeftSpeedController.set(ControlMode.PercentOutput, -drivespeedleft);
-		}
-
-		else if(Math.abs(drivespeedleft) < 0.20)
-		{
-			RobotMap.drivetrainLeftSpeedController.set(ControlMode.PercentOutput, 0);
-		}
-
-		// set speed for right drive motor
-		if(Math.abs(drivespeedright) > 0.20) 
-		{
-			RobotMap.drivetrainRightSpeedController.set(ControlMode.PercentOutput, drivespeedright);
-		}
-
-		else if(Math.abs(drivespeedright) < 0.20) 
-		{
-			RobotMap.drivetrainRightSpeedController.set(ControlMode.PercentOutput, 0);
-		}
         Scheduler.getInstance().run();
     }
 }
