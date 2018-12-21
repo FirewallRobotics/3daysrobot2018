@@ -63,7 +63,7 @@ public class Drivetrain extends Subsystem {
 		// Set speed for left drive motor
 		if(Math.abs(drivespeedleft) > 0.20) 
 		{
-			leftSpeedController.set(-drivespeedleft);
+			leftSpeedController.set(drivespeedleft);
 		}
 
 		else if(Math.abs(drivespeedleft) < 0.20)
